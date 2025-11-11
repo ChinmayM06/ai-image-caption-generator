@@ -1,0 +1,3 @@
+# This file ensures the models subdirectory is tracked by Git
+# Model files are ignored but directory structure is preserved
+

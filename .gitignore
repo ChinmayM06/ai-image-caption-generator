@@ -52,7 +52,13 @@ venv.bak/
 *.ipynb
 
 # Model Cache & Downloads
-cache/
+# Ignore cache contents but preserve directory structure
+cache/*
+!cache/.gitkeep
+!cache/README.md
+!cache/models/
+cache/models/*
+!cache/models/.gitkeep
 *.pth
 *.bin
 *.safetensors
@@ -125,5 +131,8 @@ docs/.doctrees/
 # ============================================================================
 # KEEP THESE DIRECTORIES (create .gitkeep files)
 # ============================================================================
+# Allow .gitkeep files to preserve directory structure
 !cache/.gitkeep
+!cache/models/.gitkeep
+!cache/README.md
 !static/images/examples/.gitkeep

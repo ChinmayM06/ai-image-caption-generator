@@ -1,0 +1,51 @@
+# docker-compose.yml
+# ============================================================================
+# AI IMAGE CAPTION GENERATOR - DOCKER COMPOSE
+# ============================================================================
+# For local development and production deployment
+# ============================================================================
+
+version: '3.8'
+
+services:
+  caption-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-caption-generator
+    ports:
+      - "7860:7860"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      # Optional overrides
+      - SERVER_PORT=7860
+      - SERVER_NAME=0.0.0.0
+    env_file:
+      - .env  # Load environment variables from .env file
+    volumes:
+      # Mount cache directory for persistence
+      - ./cache:/app/cache
+      # Optional: Mount for live code updates during development
+      # - ./src:/app/src
+      # - ./app.py:/app/app.py
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+# Optional: Add a volume for persistent cache
+volumes:
+  cache-data:
+    driver: local

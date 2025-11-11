@@ -1,3 +1,15 @@
+---
+title: AI Image Caption Generator
+emoji: 🖼️
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: 4.8.0
+app_file: app.py
+pinned: false
+license: mit
+---
+
 # 🖼️ AI Image Caption Generator
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -16,7 +28,6 @@ A lightweight, GPU-accelerated image captioning tool using state-of-the-art visi
 - 🎯 **Dual Model Support**: Both BLIP-base (fast) and GIT-large (high quality) run simultaneously
 - 🎨 **5 Caption Styles**: None, Creative, Social Media, Professional, Technical
 - ⚡ **GPU Accelerated**: Optimized for NVIDIA GPUs (works on CPU too)
-- 💾 **Smart Caching**: LRU cache with configurable TTL for faster repeated requests
 - 📊 **Analytics Tracking**: Built-in usage statistics and performance metrics
 - 🖼️ **Image Processing**: Automatic validation, resizing, and format conversion
 - 🔄 **Fallback Mechanisms**: Graceful degradation when API is unavailable

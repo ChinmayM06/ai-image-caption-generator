@@ -1,15 +1,3 @@
----
-title: AI Image Caption Generator
-emoji: 🖼️
-colorFrom: blue
-colorTo: purple
-sdk: gradio
-sdk_version: 4.8.0
-app_file: app.py
-pinned: false
-license: mit
----
-
 # 🖼️ AI Image Caption Generator
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -40,9 +28,9 @@ A lightweight, GPU-accelerated image captioning tool using state-of-the-art visi
 
 Try it out without any installation:
 
-**[🎮 Launch Live Demo →](https://huggingface.co/spaces/ChinmayM06/ai-image-caption-generator)**
+**[🎮 Launch Live Demo →](https://huggingface.co/spaces/CXM06/ai-image-caption-generation)**
 
-*Add your Hugging Face Spaces URL above after deployment*
+*Will be a little slow as it is running on a CPU instead of GPU*
 
 ---
 

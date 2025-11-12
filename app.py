@@ -261,16 +261,17 @@ class CaptionGeneratorApp:
                         elem_classes="image-upload"
                     )
                     
-                    gr.HTML('<div class="section-header"><span class="emoji-icon">🎨</span> Choose Style</div>')
-                    
-                    style_dropdown = gr.Dropdown(
-                        choices=self.style_model.get_available_styles(),
-                        value="Professional",
-                        label="",
-                        info="Select how you want your caption to be styled",
-                        elem_classes="style-dropdown",
-                        allow_custom_value=False
-                    )
+                    with gr.Group(elem_classes="style-section"):
+                        gr.HTML('<div class="section-header"><span class="emoji-icon">🎨</span> Choose Style</div>')
+                        
+                        style_dropdown = gr.Dropdown(
+                            choices=self.style_model.get_available_styles(),
+                            value="Professional",
+                            label="",
+                            info="Select how you want your caption to be styled",
+                            elem_classes="style-dropdown",
+                            allow_custom_value=False
+                        )
                     
                     generate_btn = gr.Button(
                         "✨ Generate Captions",
@@ -441,6 +442,7 @@ class CaptionGeneratorApp:
             border-radius: 12px;
             transition: all 0.3s ease;
             background: rgba(15, 23, 42, 0.5);
+            margin-bottom: 1.5rem !important;
         }
         
         .image-upload:hover {
@@ -452,6 +454,15 @@ class CaptionGeneratorApp:
         /* Style dropdown */
         .style-dropdown {
             margin-bottom: 1rem;
+            position: relative !important;
+            width: 100% !important;
+        }
+        
+        /* Ensure dropdown wrapper is properly positioned */
+        .style-dropdown .wrap,
+        .style-dropdown .wrap-inner {
+            position: relative !important;
+            width: 100% !important;
         }
         
         /* Generate button - vibrant gradient */
@@ -702,6 +713,8 @@ class CaptionGeneratorApp:
         .gr-dropdown-menu {
             background: #1e293b !important;
             border: 1px solid rgba(139, 92, 246, 0.3) !important;
+            position: absolute !important;
+            z-index: 1000 !important;
         }
         
         .gr-dropdown-menu option {
@@ -711,6 +724,44 @@ class CaptionGeneratorApp:
         
         .gr-dropdown-menu option:hover {
             background: rgba(139, 92, 246, 0.2) !important;
+        }
+        
+        /* Fix dropdown positioning on HF Spaces */
+        .input-column .gr-dropdown {
+            position: relative !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        /* Style section container */
+        .style-section {
+            position: relative !important;
+            margin-top: 2rem !important;
+            width: 100% !important;
+            display: block !important;
+        }
+        
+        /* Ensure proper spacing between image and style section */
+        .input-column .gr-image,
+        .input-column .image-upload {
+            margin-bottom: 2rem !important;
+        }
+        
+        /* Target image container directly */
+        .input-column > div:has(.image-upload),
+        .input-column > div:has(.gr-image) {
+            margin-bottom: 2rem !important;
+        }
+        
+        /* Fix for Gradio's dropdown container */
+        .input-column .gr-form {
+            position: relative !important;
+        }
+        
+        /* Additional fix for HF Spaces - ensure dropdown stays in flow */
+        .input-column .gr-group {
+            position: relative !important;
+            display: block !important;
         }
         
         /* Image component styling */
